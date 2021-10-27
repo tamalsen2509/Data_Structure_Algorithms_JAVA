@@ -1,3 +1,4 @@
+package src;
 
 public class Linkedlist {
 
@@ -135,18 +136,19 @@ public class Linkedlist {
 
     }
 
-    // driver code to execute all the methods
-    public static void main(String[] args) {
-        Linkedlist ll = new Linkedlist();
-        ll.insert(10); // 0
-        ll.insert(20); // 1
-        ll.insert(70); // 2
-        ll.insert(100); // 3
-        ll.insert(75); // 4
-        ll.deleteAtIndex(2);
-        System.out.println(ll.length());
-        ll.middleElem();
-        System.out.println(ll.search(0));
+    Node removeDuplicate() {
+
+        Node node = head;
+        while (node != null && node.next != null) {
+            if (node.data == node.next.data) {
+                node.next = node.next.next;
+            } else {
+                node = node.next;
+            }
+        }
+
+        return node;
     }
 
+    // runner code is available in Runner.java file
 }
